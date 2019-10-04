@@ -1,1 +1,1 @@
-# AWS_TurboDice
+HerokuDiceGame

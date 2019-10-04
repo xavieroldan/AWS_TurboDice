@@ -1,0 +1,68 @@
+JUnit to test
+
+PlayerRestController
+
+Crear un jugador
+	1/No llega objeto X
+	2/Llega objeto NULL X
+	3/Llega objeto sin nombre X
+	4/Fallo al guardar
+
+Modifica nombre jugador
+	1/No llega objeto
+	2/Llega objeto NULL
+	3/Llega objeto sin nombre
+	4/Fallo al guardar
+	5/El nombre ya existe en la BD
+	
+Tirada de dados de un jugador	
+	1/No llega la ID
+	2/La ID no existe
+	3/La ID no es un formato aceptable
+	4/Fallo al guardar
+	
+Elimina un jugador
+	1/No llega la ID
+	2/La ID no existe
+	3/La ID no es un formato aceptable
+	4/Fallo al eliminar
+	
+Elimina las jugadas de un jugador	
+	1/No llega la ID
+	2/La ID no existe
+	3/La ID no es un formato aceptable
+	4/Fallo al eliminar
+	5/El jugador no tiene jugadas que eliminar
+	
+Listado jugadores / porcentaje medio
+	1/No hay jugadores
+	2/Hay jugadores sin jugadas
+	3/Fallo al conectar a al BD
+	
+Lista de jugadas de un jugador
+	1/No llega la ID
+	2/La ID no existe
+	3/La ID no es un formato aceptable
+	4/Fallo al leer
+	5/El jugador no tiene jugadas
+	
+Jugador loser
+	1/No hay jugadores
+	2/No hay jugadas
+	3/Más de 1 jugador mismo ratio
+	4/Más de 1 jugador mismo ratio y nº jugadas
+	5/Fallo al leer
+	
+Jugador loser
+	1/No hay jugadores
+	2/No hay jugadas
+	3/Más de 1 jugador mismo ratio
+	4/Más de 1 jugador mismo ratio y nº jugadas
+	5/Fallo al leer	
+
+GameRestController
+	
+Ranking medio
+	1/No hay jugadores
+	2/Hay jugadores sin jugadas
+	3/Fallo al conectar a al BD

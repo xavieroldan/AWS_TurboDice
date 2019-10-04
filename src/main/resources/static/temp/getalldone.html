@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>TestPost</title>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js">
+        </script>
+        <script>            
+             //Get all players
+            function getall(){
+                var options = {
+                    method: 'get'
+                    }
+                alert("Enviado el GET");
+
+                fetch('http://localhost:8080/getall', options).then(response => {
+                    document.getElementById("incoming").innerHTML = response
+                    }).catch(error => console.error(error))
+            }
+
+
+            //Create a new player
+            //✧*｡٩(ˊᗜˋ*)و✧*｡   
+            function newplayer(){
+                var myObj = { name : "Bodccdrr"};; 
+                var name = myObj.name;
+                $.ajax
+                        ({
+                    url: 'http://localhost:8080/players',
+                    type: 'POST',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myObj),
+                    async: true,
+                    cache: false,
+                    processData: false,
+                    statusCode: {
+                                409 : function(){alert("El jugador ya existe")}, // ya existe 
+                                201 : function(){alert("Creado juagdor "+name)},                      
+                                401 : function(){alert("El nombre está vacío")} // vacio
+                                }
+                        });                             
+            }
+        </script>
+    </head>
+    <body>
+        <div id="post">POST testing</div>
+        <button onclick="newplayer()">Test</button>
+        <div id="post">GET testing</div>
+        <button onclick="getall()">Test</button>
+    </body>
+</html>
