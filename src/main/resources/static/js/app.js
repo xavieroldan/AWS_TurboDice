@@ -1,5 +1,5 @@
-// var urlServer="http://localhost:8080/";
-var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
+var urlServer="http://localhost:8084/AwsDiceGame/";
+//var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
 var urlRequest = "";
 var myPlayer = { name : null, idPlayer : null};
 var editedPlayer = { name : null, idPlayer : null };
@@ -72,7 +72,7 @@ function playGame()
         var resultTxt= "";   
         var winner = false;
         var penguin = "";
-        var outputText=""
+        var outputText="";
 
         //Play the game
         $.ajax
@@ -108,13 +108,13 @@ function playGame()
                     {
                         //Wins
                         outputText= "<span class='blinky'>You win!</span>";
-                        penguin="./happy.gif"
+                        penguin="./happy.gif";
                     }
                     else
                     {
                         //Lost
                         outputText= "<span class='blinkr'>You lost!</span>";
-                        penguin="./cry.gif"
+                        penguin="./cry.gif";
                     }
                    //Add the dice results
                    resultTxt="<span class='blinky'> | ";
