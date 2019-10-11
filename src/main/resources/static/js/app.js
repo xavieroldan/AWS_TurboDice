@@ -414,46 +414,7 @@ function resetGamesRequest(){
 
 //Ranking
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function ranking(){
-
-    //Get the winner
-    function getWinner(){    
-        var winner = rateDTO;
-        $.ajax({
-            url: urlServer +'players/ranking/winner', 
-            async: false,
-            success: function(data)
-            {
-                winner = data;
-                
-            },       
-            error: function(xhr, ajaxOptions, thrownError)
-            {
-                document.getElementById("d4").innerHTML= "<p class='blinkr'>Communications error:</p class='blink'><p class='blinkr'>try later</p>";
-            }
-        });
-        return winner;
-    }
-    var winner= getWinner();
-
-    //Get the loser
-    function getLoser(){
-        var loser = rateDTO;
-        $.ajax({
-            url: urlServer +'players/ranking/loser', 
-            async: false,
-            success: function(data)
-            {
-                loser = data;            
-            },        
-            error: function(xhr, ajaxOptions, thrownError)
-            {
-                document.getElementById("d4").innerHTML= "<p class='blinkr'>Communications error:</p class='blink'><p class='blinkr'>try later</p>";
-            }
-        });
-        return loser; 
-    }    
-    var loser= getLoser();
+function ranking(){  
 
     //Get the list of players and rates
 
