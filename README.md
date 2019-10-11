@@ -11,7 +11,6 @@
 <h4>
   <p>A Full Stack project made with Java, Spring, Maven, HTML5, CSS and JavaScript technologies.</p>
   <p>It’s a simple dice game where you must to get 7 to win.</p>
-  <br>
   <p>Enjoy it!</p>
   <h2>
   <a href="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/index.html" target="_blank" rel="noopener noreferrer" style="font-weight: bold" >Play Turbo Dice</a>
