@@ -30,3 +30,5 @@ build/
 src/test/resources/application.properties
 
 src/main/resources/application.properties
+
+nbactions.xml
