@@ -1,9 +1,10 @@
-var urlServer="http://localhost:8084/AwsDiceGame/";
-//var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
+//var urlServer="http://localhost:8084/AwsDiceGame/";
+var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
 var urlRequest = "";
 var myPlayer = { name : null, idPlayer : null};
 var editedPlayer = { name : null, idPlayer : null };
 var rateDTO= {"player":{"idPlayer":null,"name":null,"regDate":null,"listGame":[{"idGame":null,"isAnonim":false,"isWinner":false,"listDiceResult":[{"idDiceResult":null,"result":null}],"rate":null}]}};
+var currentPenguin="";
 
 
 //Create a new player
@@ -107,14 +108,29 @@ function playGame()
                     if(winner)
                     {
                         //Wins
+
                         outputText= "<span class='blinky'>You win!</span>";
-                        penguin="./happy.gif";
+                        if(currentPenguin==="./happy.gif")
+                        {
+                            penguin="./great.gif";
+                        }
+                        else
+                        {
+                            penguin="./happy.gif";
+                        }                        
                     }
                     else
                     {
                         //Lost
                         outputText= "<span class='blinkr'>You lost!</span>";
-                        penguin="./cry.gif";
+                        if(currentPenguin==="./cry.gif")
+                        {
+                            penguin="./roll.gif";
+                        }
+                        else
+                        {
+                            penguin="./cry.gif";
+                        } 
                     }
                    //Add the dice results
                    resultTxt="<span class='blinky'> | ";
@@ -145,6 +161,7 @@ function playGame()
             document.getElementById("d3").innerHTML = outputText;         
             //Change the penguin image
             document.getElementById("penguin").innerHTML="<img class='img-fluid' src='"+penguin+"' alt='penguin'>";
+            currentPenguin= penguin;
     }
 
 //Form select players
@@ -438,7 +455,6 @@ function ranking(){
     var ranking = getRanking();
 
 //TODO: Create the view
-    // var output="Pos Name Games Days Exp Rate";
     var output="Pos Name Exp Rate";
     var i=1;
 
