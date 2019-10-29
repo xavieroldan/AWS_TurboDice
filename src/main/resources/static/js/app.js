@@ -4,7 +4,7 @@ var urlRequest = "";
 var myPlayer = { name : null, idPlayer : null};
 var editedPlayer = { name : null, idPlayer : null };
 var rateDTO= {"player":{"idPlayer":null,"name":null,"regDate":null,"listGame":[{"idGame":null,"isAnonim":false,"isWinner":false,"listDiceResult":[{"idDiceResult":null,"result":null}],"rate":null}]}};
-var currentPenguin="";
+var currentPenguin="", winPenguin=0, lostPenguin=0;
 
 
 //Create a new player
@@ -73,7 +73,7 @@ function playGame()
         var resultTxt= "";   
         var winner = false;
         var penguin = "";
-        var outputText="";
+        var outputText="";        
 
         //Play the game
         $.ajax
@@ -108,28 +108,31 @@ function playGame()
                     if(winner)
                     {
                         //Wins
-
+                        winPenguin++;    
                         outputText= "<span class='blinky'>You win!</span>";
-                        if(currentPenguin==="./happy.gif")
+                        if(winPenguin==1)
                         {
                             penguin="./great.gif";
                         }
                         else
                         {
                             penguin="./happy.gif";
+                            winPenguin=0;
                         }                        
                     }
                     else
                     {
                         //Lost
+                        lostPenguin++;
                         outputText= "<span class='blinkr'>You lost!</span>";
-                        if(currentPenguin==="./cry.gif")
+                        if(lostPenguin==1)
                         {
                             penguin="./roll.gif";
                         }
                         else
                         {
                             penguin="./cry.gif";
+                            lostPenguin=0;
                         } 
                     }
                    //Add the dice results
@@ -455,26 +458,40 @@ function ranking(){
     var ranking = getRanking();
 
 //TODO: Create the view
-    var output="Pos Name Exp Rate";
+    //Header
+    var output=
+    "<div class='row'>"
+    +"<div class='col-sm-12 text-center d-none d-md-block'>Hall of Fame</div>"
+    +"<div class='col-sm-12 text-center d-none d-md-block'>------------</div>"
+    +"<div class='col-sm-12 text-center d-none d-md-block'><br></div>"
+    +"</div><!--row title-->"
+    +"<div class='row'>"
+    +"<div class='col-12 col-sm-2 text-left'></div>"
+    +"<div class='col-sm-3 text-left d-none d-md-block'>Name</div>"
+    +"<div class='col-sm-3 text-right d-none d-md-block'>Rate</div>"
+    +"<div class='col-sm-3 text-right d-none d-md-block'>Skill</div>"
+    +"</div><!--row header-->"
+    +"<br>";
+
     var i=1;
+    var today = Date.parse(new Date()); 
+    const oneDay = 24 * 60 * 60 * 1000;
 
     ranking.forEach(function(rateDTO)
     {
-        //To calculate the experience
-        var today = Date.parse(new Date()); 
-        const oneDay = 24 * 60 * 60 * 1000;
+        //To calculate the skill points
         var firstDate = Date.parse(rateDTO.player.regDate);
-        var diffDays = Math.abs((firstDate - today) / oneDay).toFixed(1);
-        var experience = ((diffDays * rateDTO.player.listGame.length)/10).toFixed(1);
+        var diffDays = Math.abs((firstDate - today) / oneDay).toFixed(0);
+        var skill = ((diffDays * rateDTO.player.listGame.length)/10).toFixed(0);
         
-        output+="<p>"+i
-        +" "+rateDTO.player.name
-        // +" "+rateDTO.player.listGame.length
-        // +" "+diffDays
-        +" "+experience
-        +" "+rateDTO.rate 
-        
-        +"</p>";
+        //Add view of a player
+        output+=
+        "<div class='row'>"
+        +"<div class='col-6 col-sm-2 text-center'>#"+i+"</div>"
+        +"<div class='col-6 col-sm-3 text-right text-md-left'>"+rateDTO.player.name+"</div>"
+        +"<div class='col-sm-3 text-right d-none d-md-block'>"+rateDTO.rate.toFixed(0) +"%</div>"
+        +"<div class='col-sm-3 text-right d-none d-md-block'>"+skill+"</div>"
+        +"</div><!--row pos#"+i+"-->";
         i++;
     })
 
