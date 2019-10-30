@@ -1,5 +1,5 @@
-var urlServer="http://localhost:8084/AwsDiceGame/";
-// var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
+//var urlServer="http://localhost:8084/AwsDiceGame/";
+var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
 var urlRequest = "";
 var myPlayer = { name : null, idPlayer : null};
 var editedPlayer = { name : null, idPlayer : null };
