@@ -1,5 +1,5 @@
-var urlServer="http://localhost:8084/AwsDiceGame/";
-//var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
+//var urlServer="http://localhost:8084/AwsDiceGame/";
+var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
 var urlRequest = "";
 var myPlayer = { name : null, idPlayer : null};
 var editedPlayer = { name : null, idPlayer : null };
@@ -470,6 +470,7 @@ function ranking(){
     +"<div class='col-sm-3 text-left d-none d-md-block'>Name</div>"
     +"<div class='col-sm-3 text-right d-none d-md-block'>Rate</div>"
     +"<div class='col-sm-3 text-right d-none d-md-block'>Skill</div>"
+    +"<div class='col-1 text-right d-none d-md-block'></div>"
     +"</div><!--row header-->"
     +"<br>";
 
@@ -487,10 +488,11 @@ function ranking(){
         //Add view of a player
         output+=
         "<div class='row'>"
-        +"<div class='col-6 col-sm-2 text-center'>#"+i+"</div>"
-        +"<div class='col-6 col-sm-3 text-right text-md-left'>"+rateDTO.player.name+"</div>"
+        +"<div class='col-4 col-sm-2 text-center'>#"+i+"</div>"
+        +"<div class='col-7 col-sm-3 text-right text-md-left'>"+rateDTO.player.name+"</div>"
         +"<div class='col-sm-3 text-right d-none d-md-block'>"+rateDTO.rate.toFixed(0) +"%</div>"
         +"<div class='col-sm-3 text-right d-none d-md-block'>"+skill+"</div>"
+        +"<div class='col-1 d-block d-md-none'></div>"
         +"</div><!--row pos#"+i+"-->";
         i++;
     })
