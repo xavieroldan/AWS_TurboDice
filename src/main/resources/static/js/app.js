@@ -1,5 +1,5 @@
-//var urlServer="http://localhost:8084/AwsDiceGame/";
-var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
+var urlServer="http://localhost:8084/AwsDiceGame/";
+//var urlServer="http://turbodice-env.rwqv3piykm.eu-central-1.elasticbeanstalk.com/";
 var urlRequest = "";
 var myPlayer = { name : null, idPlayer : null};
 var editedPlayer = { name : null, idPlayer : null };
@@ -457,12 +457,12 @@ function ranking(){
     } 
     var ranking = getRanking();
 
-//TODO: Create the view
+//Create the view
     //Header
     var output=
     "<div class='row'>"
-    +"<div class='col-sm-12 text-center d-none d-md-block'>Hall of Fame</div>"
-    +"<div class='col-sm-12 text-center d-none d-md-block'>------------</div>"
+    +"<div class='col-sm-12 text-center d-none d-md-block blinky'>Hall of Fame</div>"
+    +"<div class='col-sm-12 text-center d-none d-md-block blinky'>------------</div>"
     +"<div class='col-sm-12 text-center d-none d-md-block'><br></div>"
     +"</div><!--row title-->"
     +"<div class='row'>"
